@@ -84,4 +84,6 @@ public abstract interface IBaseDao<T> {
 	 */
 	public abstract List<T> queryPage(T entity, PageConfig pageConfig);
 
+	public abstract List<T> queryPage(PageConfig pageConfig);
+
 }

@@ -43,7 +43,20 @@ public class TBeanControllerTest extends BaseControlTest {
 		System.out
 				.println("==========================================================================");
 	}
-
+	@Test
+	public void testList() throws Exception {
+		String responseString = mockMvc.perform(get("/testbean/") // 请求的url,请求的方法是get
+				.contentType(MediaType.APPLICATION_FORM_URLENCODED) // 数据的格式
+				// .param("id", "6") // 添加参数
+				).andExpect(status().isOk()) // 返回的状态是200
+				.andDo(print()) // 打印出请求和相应的内容
+				.andReturn().getResponse().getContentAsString(); // 将相应的数据转换为字符串
+		System.out
+				.println("==================================  测试结果  ================================");
+		System.out.println("返回的json = " + responseString);
+		System.out
+				.println("==========================================================================");
+	}
 	// 有些单元测试你不希望回滚
 	@Rollback(false)
 	@Test

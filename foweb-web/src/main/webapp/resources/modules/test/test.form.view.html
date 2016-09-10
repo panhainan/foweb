@@ -1,0 +1,30 @@
+<form name="form" class="form" novalidate ng-submit="form.$valid && save()">
+    <div class="modal-header">
+        <h5 class="modal-title">
+            <span ng-show="tbean.id">编辑</span>
+            <span ng-hide="tbean.id">新建</span>
+        </h5>
+    </div>
+    <div class="modal-body">
+        <!--用户名-->
+        <div class="row form-group">
+            <div class="col-sm-4" style="text-align: center">
+                <label for="name">主机名称</label>
+            </div>
+            <div class="col-sm-6">
+                <input placeholder="请输入名称" ng-model="tbean.name" id="name" name="tbean.name" type="text" class="form-control" required />
+            </div>
+            <!--提示信息-->
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-6" ng-show="form.$submitted || form.tbean.name.$touched">
+                    <div class="message" ng-show="form.tbean.name.$error.required">请输入主机名称</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">提交</button>
+        <button ng-click="cancel()" type="button" class="btn btn-default cancel">取消</button>
+    </div>
+</form>

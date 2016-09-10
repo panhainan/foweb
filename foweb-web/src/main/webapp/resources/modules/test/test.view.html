@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table  table-hover">
+                    <caption>测试数据列表</caption>
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>日期</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="tbean in tbeans">
+                        <td>{{tbean.id}}</td>
+                        <td>{{tbean.name}}</td>
+                        <td>{{tbean.saveDate | date :'yyyy-MM-dd HH:ss'}}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                <li style="float:left"><a href="#/test-case/{{tbean.id}}">查看</a> |</li>
+                                <li style="float:left"><a ng-click="delete(tbean.id,$index)">删除</a></li>
+                            </ul>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" ng-click="openForm('md')" class="btn btn-primary" style="float: right">新建</button>
+        </div>
+    </div>
+</div>

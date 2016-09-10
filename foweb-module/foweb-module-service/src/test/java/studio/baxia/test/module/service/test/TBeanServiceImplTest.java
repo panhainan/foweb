@@ -13,6 +13,7 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import studio.baxia.foweb.module.model.vo.PageConfig;
 import studio.baxia.test.module.common.BaseTest;
 import studio.baxia.test.module.model.pojo.TBean;
 import studio.baxia.test.module.service.api.ITBeanService;
@@ -75,7 +76,15 @@ public class TBeanServiceImplTest extends BaseTest {
 				new Throwable().getStackTrace()[0].getMethodName(), null)
 				+ iTBeanService.get(id));
 	}
-
+	@Test
+	public void testList() {
+		PageConfig pageConfig = new PageConfig();
+		pageConfig.setPageIndex(0);
+		pageConfig.setPageSize(4);
+		System.out.println(printResultStr(
+				new Throwable().getStackTrace()[0].getMethodName(), null)
+				+ iTBeanService.list(pageConfig));
+	}
 	/**
 	 * Test method for
 	 * {@link studio.baxia.foweb.service.impl.BaseServiceImpl#delete(java.io.Serializable)}

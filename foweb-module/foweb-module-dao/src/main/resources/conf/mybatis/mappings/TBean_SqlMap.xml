@@ -9,7 +9,17 @@
 		<result property="saveDate" column="saveDate" />
 	</resultMap>
 
-
+	<select id="list" resultMap="TBeanMap" useCache="true">
+		SELECT
+		*
+		FROM testbean
+		<if test="pageIndex != null">
+			limit #{pageIndex,jdbcType=INTEGER},
+		</if>
+		<if test="pageSize != null">
+			#{pageSize,jdbcType=INTEGER}
+		</if>
+	</select>
 	<select id="select" resultMap="TBeanMap" useCache="true">
 		SELECT
 		*

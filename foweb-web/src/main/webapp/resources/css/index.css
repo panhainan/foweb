@@ -1,0 +1,32 @@
+html,body{
+    font:14px/1.5 "Arial", "Helvetica Neue", Helvetica, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", "Microsoft Yahei", sans-serif;
+}
+ng-view .container{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    min-height:500px;
+}
+a{
+    cursor:pointer;
+    color:#000;
+}
+.ulstyle ul li{
+    border-bottom:1px solid silver;
+    font:14px/1.5 "Arial", "Helvetica Neue", Helvetica, "Hiragino Sans GB", "STHeiti", "WenQuanYi Micro Hei", "Microsoft Yahei", sans-serif;
+}
+.img-circle{
+    border:1px solid #dddddd;
+    border-radius:50%;
+    height: 100px;
+    width:100px;
+}
+.tableTrBottomBorder table tr{
+    border-bottom:1px solid #ddd;
+}
+.modalDiv .row div {
+    margin: 3px 0;
+}
+
+.modalDiv .row div label {
+    padding: 0;
+}

@@ -28,5 +28,7 @@ public abstract interface IBaseService<T> {
 
 	public abstract List<T> list(Map paramMap, PageConfig paramPageConfig);
 
+	public abstract List<T> list(PageConfig paramPageConfig);
+
 	public abstract List<T> list(T paramT, PageConfig paramPageConfig);
 }

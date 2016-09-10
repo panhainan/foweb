@@ -67,7 +67,10 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T> {
 	public List<T> list(Map paramMap, PageConfig pageConfig) {
 		return getDao().queryPage(paramMap, pageConfig);
 	}
-
+	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
+	public List<T> list(PageConfig pageConfig) {
+		return getDao().queryPage( pageConfig);
+	}
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
 	public List<T> list(T pojo, PageConfig pageConfig) {
 		return getDao().queryPage(pojo, pageConfig);

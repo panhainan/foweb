@@ -3,6 +3,8 @@
  */
 package studio.baxia.foweb.module.controller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -153,7 +155,31 @@ public abstract class BaseController<T> {
 	@RequestMapping(value = "/", method = { RequestMethod.GET })
 	public CommonResult list(PageConfig pageConfig) {
 		CommonResult commonResult = null;
-		
+		if (pageConfig == null) {
+			pageConfig = new PageConfig();
+		}
+		Boolean isSuccess = true;
+		String message = null;
+		List<T> result = null;
+		try {
+			result = getService().list(pageConfig);
+			if (result == null) {
+				isSuccess = false;
+				message = RESPONSE_OPERATE_FAILED_MESSAGE;
+			}
+		} catch (Exception e) {
+			isSuccess = false;
+			e.printStackTrace();
+			message = e.getLocalizedMessage();
+		} finally {
+			if (isSuccess) {
+				// 成功运行
+				commonResult = new CommonResult(RESPONSE_SUCCESS_CODE, result);
+			} else {
+				// 失败运行
+				commonResult = new CommonResult(RESPONSE_ERROR_CODE, message);
+			}
+		}
 		return commonResult;
 	}
 

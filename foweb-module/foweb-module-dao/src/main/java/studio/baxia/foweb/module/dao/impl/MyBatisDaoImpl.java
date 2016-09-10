@@ -28,7 +28,7 @@ public class MyBatisDaoImpl<T> implements IBaseDao<T> {
 	private String delete = this.getClass().getName() + ".delete";
 	private String seleteByKey = this.getClass().getName() + ".selectByKey";
 	private String select = this.getClass().getName() + ".select";
-
+	private String list = this.getClass().getName() + ".list";
 	@Override
 	public Integer insert(T entity) {
 		return this.insertBySqlMapId(insert, entity);
@@ -42,6 +42,10 @@ public class MyBatisDaoImpl<T> implements IBaseDao<T> {
 	@Override
 	public T get(Serializable id) {
 		return sqlSessionTemplate.selectOne(seleteByKey, id);
+	}
+	
+	public List<T> select(T entity){
+		return sqlSessionTemplate.selectOne(select, entity);
 	}
 
 	@Override
@@ -79,6 +83,10 @@ public class MyBatisDaoImpl<T> implements IBaseDao<T> {
 	@Override
 	public List<T> queryPage(T entity, PageConfig pageConfig) {
 		return null;
+	}
+	@Override
+	public List<T> queryPage( PageConfig pageConfig) {
+		return sqlSessionTemplate.selectList(list, pageConfig);
 	}
 
 	public SqlSessionTemplate getSqlSessionTemplate() {

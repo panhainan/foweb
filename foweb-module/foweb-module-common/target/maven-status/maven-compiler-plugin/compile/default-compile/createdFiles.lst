@@ -1,0 +1,5 @@
+studio\baxia\test\module\common\BaseTest.class
+studio\baxia\foweb\module\common\util\PageInfoResult.class
+studio\baxia\foweb\module\common\util\ParamUtils.class
+studio\baxia\foweb\module\common\util\CommonResult.class
+studio\baxia\test\module\common\BaseControlTest.class

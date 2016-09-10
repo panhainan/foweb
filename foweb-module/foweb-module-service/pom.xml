@@ -8,6 +8,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>foweb-module-service</artifactId>
+	<packaging>jar</packaging>
 	<name>foweb-module-service</name>
 	<description>a java maven project</description>
 	<properties>

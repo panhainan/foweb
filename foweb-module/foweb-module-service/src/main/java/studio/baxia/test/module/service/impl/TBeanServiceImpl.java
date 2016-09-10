@@ -21,11 +21,11 @@ import studio.baxia.test.module.service.api.ITBeanService;
 public class TBeanServiceImpl extends BaseServiceImpl<TBean> implements
 		ITBeanService{
 	@Autowired
-	private ITBeanDao iTestBeanDao;
+	private ITBeanDao iTBeanDao;
 
 	@Override
 	public IBaseDao<TBean> getDao() {
-		return iTestBeanDao;
+		return iTBeanDao;
 	}
 
 }

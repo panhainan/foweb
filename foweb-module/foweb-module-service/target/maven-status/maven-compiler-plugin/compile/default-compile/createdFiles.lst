@@ -1,0 +1,4 @@
+studio\baxia\foweb\module\service\impl\BaseServiceImpl.class
+studio\baxia\test\module\service\impl\TBeanServiceImpl.class
+studio\baxia\foweb\module\service\api\IBaseService.class
+studio\baxia\test\module\service\api\ITBeanService.class

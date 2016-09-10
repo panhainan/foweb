@@ -8,6 +8,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>foweb-module-dao</artifactId>
+	<packaging>jar</packaging>
 	<name>foweb-module-dao</name>
 	<description>a java maven project</description>
 

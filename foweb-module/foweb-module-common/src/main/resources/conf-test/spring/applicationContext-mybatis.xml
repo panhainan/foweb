@@ -15,7 +15,7 @@
 		<!-- <property name="configLocation" value="classpath:conf/mybatis/mybatis-config.xml" /> -->
 		<property name="mapperLocations">
 			<list>
-				<value>classpath*:conf-test/mybatis/**/*SqlMap.xml</value>
+				<value>classpath*:conf/mybatis/**/*SqlMap.xml</value>
 			</list>
 		</property>
 	</bean>

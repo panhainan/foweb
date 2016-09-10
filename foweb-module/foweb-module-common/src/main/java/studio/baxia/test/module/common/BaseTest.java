@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * @author fireoct
  * @email panhainan@yeah.net
- * @date ${date}
+ * @date 2016-09-09
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:conf-test/**/applicationContext.xml","classpath*:conf-test/**/applicationContext-mybatis.xml"})

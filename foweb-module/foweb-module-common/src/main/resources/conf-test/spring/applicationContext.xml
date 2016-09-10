@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	<!-- 定义受环境影响易变的变量 -->
 	<!-- 目前只加载database.properties, log4j.properties -->
-	<context:property-placeholder location="classpath*:*.properties" />
+	<context:property-placeholder location="classpath*:**/*.properties" />
 
 	<context:component-scan base-package="studio.baxia">
 		<!-- 将Controller的注解排除掉，在spring-mvc.xml单独扫描Controller注解 -->

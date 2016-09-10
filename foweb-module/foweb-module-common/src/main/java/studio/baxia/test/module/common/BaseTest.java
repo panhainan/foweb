@@ -1,7 +1,7 @@
 /**
  * 
  */
-package studio.baxia.foweb.module.common.test;
+package studio.baxia.test.module.common;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

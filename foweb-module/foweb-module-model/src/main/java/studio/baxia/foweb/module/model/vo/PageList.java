@@ -1,6 +1,5 @@
 package studio.baxia.foweb.module.model.vo;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,11 +7,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-/***
- * 
- * @author longyc
- *
- * @param <E>
+/**
+ * @author fireoct
+ * @email panhainan@yeah.net
+ * @date 2016-09-07
  */
 
 public final class PageList<E> implements List<E>, Serializable {
@@ -23,16 +21,16 @@ public final class PageList<E> implements List<E>, Serializable {
 	private List<E> resulstList;
 
 	private PageConfig pageConfig;
-	
+
 	public PageList(List<E> list) {
 		resulstList = new ArrayList<E>();
-		if(list!=null){
+		if (list != null) {
 			resulstList.addAll(list);
 		}
-		/*list.addAll(c)
-		if (resulstList == null) {
-			resulstList = new ArrayList<E>();
-		}*/
+		/*
+		 * list.addAll(c) if (resulstList == null) { resulstList = new
+		 * ArrayList<E>(); }
+		 */
 	}
 
 	public PageList(List<E> list, PageConfig pageConfig) {
@@ -182,11 +180,11 @@ public final class PageList<E> implements List<E>, Serializable {
 		return resulstList.subList(fromIndex, toIndex);
 	}
 
-    public PageConfig getPageConfig() {
-        return pageConfig;
-    }
+	public PageConfig getPageConfig() {
+		return pageConfig;
+	}
 
-    public void setPageConfig(PageConfig pageConfig) {
-        this.pageConfig = pageConfig;
-    }
+	public void setPageConfig(PageConfig pageConfig) {
+		this.pageConfig = pageConfig;
+	}
 }

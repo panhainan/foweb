@@ -1,7 +1,7 @@
 /**
  * 
  */
-package studio.baxia.foweb.module.common.test;
+package studio.baxia.test.module.model.pojo;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import java.util.Date;
  * @email panhainan@yeah.net
  * @date 2016-09-07
  */
-public class TestBean {
+public class TBean {
 	private Integer id;
 	private String name;
 	private Date saveDate;

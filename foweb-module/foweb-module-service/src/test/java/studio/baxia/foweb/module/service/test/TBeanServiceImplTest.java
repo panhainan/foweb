@@ -13,18 +13,18 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import studio.baxia.foweb.module.common.test.BaseTest;
-import studio.baxia.foweb.module.common.test.TestBean;
-import studio.baxia.test.module.service.api.ITestService;
+import studio.baxia.test.module.common.BaseTest;
+import studio.baxia.test.module.model.pojo.TBean;
+import studio.baxia.test.module.service.api.ITBeanService;
 
 /**
  * @author fireoct
  * @email panhainan@yeah.net
  * @date 2016-09-08
  */
-public class TestBeanServiceImplTest extends BaseTest {
+public class TBeanServiceImplTest extends BaseTest {
 	@Autowired
-	private ITestService iTestService;
+	private ITBeanService iTBeanService;
 
 	// 获取当前方法名
 	// new Throwable().getStackTrace()[0].getMethodName();
@@ -36,12 +36,12 @@ public class TestBeanServiceImplTest extends BaseTest {
 	 */
 	@Test
 	public void testSaveT() {
-		TestBean testBean = new TestBean();
+		TBean testBean = new TBean();
 		testBean.setName("FireOct" + Math.random());
 		testBean.setSaveDate(new Date());
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
-				+ iTestService.save(testBean));
+				+ iTBeanService.save(testBean));
 	}
 
 	/**
@@ -51,16 +51,16 @@ public class TestBeanServiceImplTest extends BaseTest {
 	 */
 	@Test
 	public void testSaveListOfT() {
-		List<TestBean> list = new ArrayList<TestBean>();
+		List<TBean> list = new ArrayList<TBean>();
 		for(int i=0;i<10;i++){
-			TestBean testBean = new TestBean();
+			TBean testBean = new TBean();
 			testBean.setName("FireOct" + Math.random());
 			testBean.setSaveDate(new Date());
 			list.add(testBean);
 		}
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
-				+ iTestService.save(list));
+				+ iTBeanService.save(list));
 	}
 
 	/**
@@ -70,10 +70,10 @@ public class TestBeanServiceImplTest extends BaseTest {
 	 */
 	@Test
 	public void testGet() {
-		Integer id = 0;
+		Integer id = 6;
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
-				+ iTestService.get(id));
+				+ iTBeanService.get(id));
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class TestBeanServiceImplTest extends BaseTest {
 		Integer id = 05;
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
-				+ iTestService.delete(id));
+				+ iTBeanService.delete(id));
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class TestBeanServiceImplTest extends BaseTest {
 		}
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
-				+ Arrays.toString(iTestService.deleteAll(ids)));
+				+ Arrays.toString(iTBeanService.deleteAll(ids)));
 	}
 	/**
 	 * Test method for
@@ -112,14 +112,14 @@ public class TestBeanServiceImplTest extends BaseTest {
 	@Test
 	public void testUpdateT() {
 		Integer id = 26;
-		TestBean entity = iTestService.get(id);
+		TBean entity = iTBeanService.get(id);
 		if (null != entity) {
 			entity.setName("ut FireOct" + Math.random());
 			entity.setSaveDate(new Date());
 			System.out.println(printResultStr(
 					new Throwable().getStackTrace()[0].getMethodName(),
 					"受影响的行数（0表示删除失败或者该记录不存在）：")
-					+ iTestService.update(entity));
+					+ iTBeanService.update(entity));
 		} else {
 			System.out.println(printResultStr(
 					new Throwable().getStackTrace()[0].getMethodName(),"ID错误，数据库不存在该id对应的记录!"));
@@ -132,9 +132,9 @@ public class TestBeanServiceImplTest extends BaseTest {
 	 */
 	@Test
 	public void testUpdateListOfT() {
-		List<TestBean> list = new ArrayList<TestBean>();
+		List<TBean> list = new ArrayList<TBean>();
 		for(int i=5;i<15;i++){
-			TestBean testBean = new TestBean();
+			TBean testBean = new TBean();
 			testBean.setId(i);
 			testBean.setName("ut FireOct" + Math.random());
 			testBean.setSaveDate(new Date());
@@ -142,7 +142,7 @@ public class TestBeanServiceImplTest extends BaseTest {
 		}
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
-				+ iTestService.update(list));
+				+ iTBeanService.update(list));
 	}
 
 	/**

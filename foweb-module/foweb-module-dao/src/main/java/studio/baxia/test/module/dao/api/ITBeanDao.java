@@ -3,8 +3,8 @@
  */
 package studio.baxia.test.module.dao.api;
 
-import studio.baxia.foweb.module.common.test.TestBean;
 import studio.baxia.foweb.module.dao.api.IBaseDao;
+import studio.baxia.test.module.model.pojo.TBean;
 
 /**
  * @author fireoct
@@ -12,6 +12,6 @@ import studio.baxia.foweb.module.dao.api.IBaseDao;
  * @date 2016-09-07
  */
 
-public interface ITestBeanDao extends IBaseDao<TestBean> {
+public interface ITBeanDao extends IBaseDao<TBean> {
 
 }

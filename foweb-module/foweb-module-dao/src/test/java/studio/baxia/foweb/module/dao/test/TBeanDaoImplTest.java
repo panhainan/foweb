@@ -8,16 +8,16 @@ import java.util.Date;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import studio.baxia.foweb.module.common.test.BaseTest;
-import studio.baxia.foweb.module.common.test.TestBean;
-import studio.baxia.test.module.dao.api.ITestBeanDao;
+import studio.baxia.test.module.common.BaseTest;
+import studio.baxia.test.module.dao.api.ITBeanDao;
+import studio.baxia.test.module.model.pojo.TBean;
 
 /**
  * @author fireoct
  * @email panhainan@yeah.net
  * @date 2016-09-07
  */
-public class TestBeanDaoImplTest extends BaseTest {
+public class TBeanDaoImplTest extends BaseTest {
 
 	public static void main(String[] args) {
 		String n1 = null, n2 = null, n3 = null;
@@ -43,17 +43,17 @@ public class TestBeanDaoImplTest extends BaseTest {
 	}
 
 	@Autowired
-	private ITestBeanDao iTestBeanDao;
+	private ITBeanDao iTBeanDao;
 
 
 	@Test
 	public void testInsert() {
-		TestBean entity = new TestBean();
+		TBean entity = new TBean();
 		entity.setName("FireOct" + Math.random());
 		entity.setSaveDate(new Date());
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
-				+ iTestBeanDao.insert(entity));
+				+ iTBeanDao.insert(entity));
 	}
 
 	@Test
@@ -61,7 +61,7 @@ public class TestBeanDaoImplTest extends BaseTest {
 		Integer id = 6;
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
-				+ iTestBeanDao.get(id));
+				+ iTBeanDao.get(id));
 	}
 
 	@Test
@@ -69,20 +69,20 @@ public class TestBeanDaoImplTest extends BaseTest {
 		Integer id = 25;
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(),
-				"受影响的行数（0表示删除失败或者该记录不存在）：") + iTestBeanDao.delete(id));
+				"受影响的行数（0表示删除失败或者该记录不存在）：") + iTBeanDao.delete(id));
 	}
 
 	@Test
 	public void testUpdate() {
 		Integer id = 0;
-		TestBean entity = iTestBeanDao.get(id);
+		TBean entity = iTBeanDao.get(id);
 		if (null != entity) {
 			entity.setName("ut FireOct" + Math.random());
 			entity.setSaveDate(new Date());
 			System.out.println(printResultStr(
 					new Throwable().getStackTrace()[0].getMethodName(),
 					"受影响的行数（0表示删除失败或者该记录不存在）：")
-					+ iTestBeanDao.update(entity));
+					+ iTBeanDao.update(entity));
 		} else {
 			System.out.println(printResultStr(
 					new Throwable().getStackTrace()[0].getMethodName(),"ID错误，数据库不存在该id对应的记录!"));

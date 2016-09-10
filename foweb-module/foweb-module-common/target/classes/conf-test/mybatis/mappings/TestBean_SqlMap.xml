@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="studio.baxia.test.module.dao.impl.TestBeanDaoImpl">
+
+
+	<resultMap id="TestBeanMap" type="studio.baxia.foweb.module.common.test.TestBean">
+		<result property="name" column="name" />
+		<result property="id" column="id" />
+		<result property="saveDate" column="saveDate" />
+	</resultMap>
+
+
+	<select id="select" resultMap="TestBeanMap" useCache="true">
+		SELECT
+		*
+		FROM testbean
+		<where>
+			<if test="id != null">
+				( id = #{id,jdbcType=INTEGER})
+			</if>
+			<if test="name != null">
+				AND ( name = #{name,jdbcType=VARCHAR})
+			</if>
+			<if test="saveDate != null">
+				AND ( saveDate = #{saveDate,jdbcType=TIMESTAMP})
+			</if>
+		</where>
+	</select>
+
+
+	<select id="selectByKey" resultMap="TestBeanMap" useCache="true">
+		SELECT * FROM testbean
+		WHERE
+		id=#{id,jdbcType=INTEGER}
+	</select>
+
+
+	<update id="updateByKey">
+		UPDATE testbean
+		<set>
+			<if test="name != null">
+				name=#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="saveDate != null">
+				saveDate=#{saveDate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		WHERE id=#{id,jdbcType=INTEGER}
+	</update>
+
+	<delete id="deleteByKey">
+		delete from testbean
+		WHERE id=#{id,jdbcType=INTEGER}
+	</delete>
+
+	<delete id="deleteBy">
+		delete from testbean
+		<where>
+			<if test="id != null">
+				( id = #{id,jdbcType=INTEGER})
+			</if>
+			<if test="name != null">
+				AND ( name = #{name,jdbcType=VARCHAR})
+			</if>
+			<if test="saveDate != null">
+				AND ( saveDate = #{saveDate,jdbcType=TIMESTAMP})
+			</if>
+		</where>
+	</delete>
+	<insert id="insert">
+		INSERT INTO testbean
+		(
+		name
+		, saveDate
+		)
+		VALUES
+		(
+		#{name,jdbcType=VARCHAR}
+		, #{saveDate,jdbcType=TIMESTAMP}
+		)
+	</insert>
+
+</mapper>

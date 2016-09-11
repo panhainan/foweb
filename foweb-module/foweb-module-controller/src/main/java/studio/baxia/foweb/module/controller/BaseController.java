@@ -3,10 +3,11 @@
  */
 package studio.baxia.foweb.module.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -151,19 +152,37 @@ public abstract class BaseController<T> {
 		return commonResult;
 	}
 
+	/**
+	 * 用于初始化分页信息
+	 * @author fireoct
+	 * @date 2016年9月11日
+	 * @param pageConfig
+	 * @param t
+	 */
+	public void initPageConfig(PageConfig pageConfig,T t){
+		if (pageConfig == null) {
+			pageConfig = new PageConfig();
+		}else{
+			pageConfig.init();
+			Integer totalRows = getService().getCount(t);
+			pageConfig.initPages(totalRows);
+		}
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/", method = { RequestMethod.GET })
 	public CommonResult list(PageConfig pageConfig) {
 		CommonResult commonResult = null;
-		if (pageConfig == null) {
-			pageConfig = new PageConfig();
-		}
+		//对分页对象进行初始化
+		initPageConfig(pageConfig,null);
+		log.info("传入的参数pageConfig:"+pageConfig);
 		Boolean isSuccess = true;
 		String message = null;
-		List<T> result = null;
+		List<T> lists = null;
+		Map<String,Object> result = null;
 		try {
-			result = getService().list(pageConfig);
-			if (result == null) {
+			lists = getService().list(pageConfig);
+			if (lists == null) {
 				isSuccess = false;
 				message = RESPONSE_OPERATE_FAILED_MESSAGE;
 			}
@@ -173,7 +192,10 @@ public abstract class BaseController<T> {
 			message = e.getLocalizedMessage();
 		} finally {
 			if (isSuccess) {
+				result = new HashMap<String,Object>();
 				// 成功运行
+				result.put("lists", lists);
+				result.put("pageConfig", pageConfig);
 				commonResult = new CommonResult(RESPONSE_SUCCESS_CODE, result);
 			} else {
 				// 失败运行

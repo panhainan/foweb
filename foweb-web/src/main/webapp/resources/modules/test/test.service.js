@@ -2,9 +2,9 @@
  * Created by Pan on 2016/9/11.
  */
 app.service("TestCaseService", function ($http, $q) {
-    this.list = function () {
+    this.list = function (pageNum,pageSize) {
         var deferred = $q.defer();
-        $http.get('/foweb-web/testbean/', {
+        $http.get('/foweb-web/testbean/?pageNum='+pageNum+"&pageSize="+pageSize,{
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
         }).success(function (data) {
             console.log(data);

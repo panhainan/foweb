@@ -63,6 +63,8 @@ public abstract interface IBaseDao<T> {
 	 */
 	public abstract Integer updateBySqlMapId(String sqlMapId, Object objParam);
 
+	public abstract Integer getCount(T t);
+	
 	/**
 	 * 分页查询带查询条
 	 * @param param

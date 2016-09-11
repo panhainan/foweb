@@ -44,7 +44,22 @@
 		WHERE
 		id=#{id,jdbcType=INTEGER}
 	</select>
-
+	
+	<select id="getCount" resultType="Integer" useCache="true">
+		SELECT count(*)
+		FROM testbean
+		<where>
+			<if test="id != null">
+				( id = #{id,jdbcType=INTEGER})
+			</if>
+			<if test="name != null">
+				AND ( name = #{name,jdbcType=VARCHAR})
+			</if>
+			<if test="saveDate != null">
+				AND ( saveDate = #{saveDate,jdbcType=TIMESTAMP})
+			</if>
+		</where>
+	</select>
 
 	<update id="updateByKey">
 		UPDATE testbean

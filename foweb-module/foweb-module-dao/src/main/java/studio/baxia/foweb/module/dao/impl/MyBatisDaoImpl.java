@@ -29,6 +29,7 @@ public class MyBatisDaoImpl<T> implements IBaseDao<T> {
 	private String seleteByKey = this.getClass().getName() + ".selectByKey";
 	private String select = this.getClass().getName() + ".select";
 	private String list = this.getClass().getName() + ".list";
+	private String count = this.getClass().getName() + ".getCount";
 	@Override
 	public Integer insert(T entity) {
 		return this.insertBySqlMapId(insert, entity);
@@ -88,7 +89,10 @@ public class MyBatisDaoImpl<T> implements IBaseDao<T> {
 	public List<T> queryPage( PageConfig pageConfig) {
 		return sqlSessionTemplate.selectList(list, pageConfig);
 	}
-
+	@Override
+	public Integer getCount(T t) {
+		return this.sqlSessionTemplate.selectOne(count, t);
+	}
 	public SqlSessionTemplate getSqlSessionTemplate() {
 		return sqlSessionTemplate;
 	}
@@ -96,4 +100,6 @@ public class MyBatisDaoImpl<T> implements IBaseDao<T> {
 	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
 		this.sqlSessionTemplate = sqlSessionTemplate;
 	}
+
+
 }

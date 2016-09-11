@@ -1,10 +1,15 @@
 <div class="container">
 
-    <div class="panel panel-default">
-        <div class="panel-body">
+    <div class="panel panel-default" ><!--style="margin-bottom: 5px;"-->
+        <div class="panel-heading" ><!--style="margin: 10px;margin-bottom: 0;height: 45px"-->
+            <h3 class="panel-title" ><!--style="line-height: 40px;"-->
+                测试数据列表<span style="font-size: 12px">(共{{totalItems}}条记录)</span>
+                <button type="button" ng-click="openForm('md')" class="btn btn-primary" style="float: right">新建</button>
+            </h3>
+        </div>
+        <div class="panel-body" style="min-height: 440px">
             <div class="table-responsive">
                 <table class="table  table-hover">
-                    <caption>测试数据列表</caption>
                     <thead>
                     <tr>
                         <th>编号</th>
@@ -29,7 +34,10 @@
                     </tbody>
                 </table>
             </div>
-            <button type="button" ng-click="openForm('md')" class="btn btn-primary" style="float: right">新建</button>
+        </div>
+        <div class="panel-footer text-right" ><!--style="padding: 0;"-->
+            <!--style="margin: 5px 0 0 0;"-->
+            <ul uib-pagination total-items="totalItems" max-size="5"  boundary-link-numbers="true" items-per-page="pageSize" ng-model="currentPage" ng-change="pageChanged()"></ul>
         </div>
     </div>
 </div>

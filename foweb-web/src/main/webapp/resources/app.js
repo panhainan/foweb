@@ -8,7 +8,8 @@ app.config(function ($httpProvider) {
 });
 app.config(function ($routeProvider) {
     $routeProvider.when("/index", {
-        templateUrl: "resources/modules/test/index.view.html"
+        templateUrl: "resources/modules/index/main.view.html",
+        controller: 'IndexController'
     }).when("/test-case",{
         templateUrl: "resources/modules/test/test.view.html",
         controller: 'TestCaseController'
@@ -18,7 +19,7 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.otherwise({
-        templateUrl: "resources/modules/test/test.view.html"
+        templateUrl: "resources/modules/index/main.view.html"
     });
 });
 app.run(function ($rootScope, $location, $window) {

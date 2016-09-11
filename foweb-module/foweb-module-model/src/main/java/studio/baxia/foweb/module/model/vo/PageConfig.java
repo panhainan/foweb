@@ -1,6 +1,5 @@
 package studio.baxia.foweb.module.model.vo;
 
-
 import java.io.Serializable;
 
 /**
@@ -15,7 +14,7 @@ public class PageConfig implements Serializable {
 	 */
 	private static final long serialVersionUID = 862394223766206144L;
 
-	private int pageIndex;
+	private int pageIndex;	//数据库检索起始位置
 	private int rowCount; // 总记录数
 
 	private int pageSize = 10; // 每页显示记录
@@ -29,7 +28,16 @@ public class PageConfig implements Serializable {
 	public PageConfig() {
 		super();
 	}
-
+	
+	public void init(){
+		if(pageIndex==0){
+			pageIndex = (pageNum-1)*pageSize;
+		}
+	}
+	public void initPages(Integer totalRows) {
+		rowCount = totalRows;
+		pageCount = (rowCount % pageSize) == 0 ? (rowCount/pageSize):(rowCount/pageSize)+1;
+	}
 	public PageConfig(int rowCount, int pageSize, int pageNum, int pageCount,
 			int currRowNum, int startIndex, int endIndex, int pageCode,
 			int nextPage, int previousPage, String orderBy) {
@@ -50,22 +58,23 @@ public class PageConfig implements Serializable {
 	}
 
 	public int getRowCount() {
-		/*if (PageHelp.getTotalElements() != null) {
-			rowCount = PageHelp.getTotalElements();
-			PageHelp.clean();
-		}*/
+		/*
+		 * if (PageHelp.getTotalElements() != null) { rowCount =
+		 * PageHelp.getTotalElements(); PageHelp.clean(); }
+		 */
 		return rowCount;
 	}
 
 	public void setRowCount(int rowCount) {
 		this.rowCount = rowCount; // 计算总页
 
-		//getPageIndex(pageCode, pageNum, pageCount); // 计算结束索引
+		// getPageIndex(pageCode, pageNum, pageCount); // 计算结束索引
 	}
 
 	public int getPageNum() {
-		if(pageNum<1)pageNum=pageIndex+1;
-		//if(pageIndex)
+		if (pageNum < 1)
+			pageNum = pageIndex + 1;
+		// if(pageIndex)
 		return pageNum;
 	}
 
@@ -74,7 +83,7 @@ public class PageConfig implements Serializable {
 	}
 
 	public int getPageCount() {
-	    return pageCount;
+		return pageCount;
 	}
 
 	public void setPageCount(int pageCount) {
@@ -93,8 +102,18 @@ public class PageConfig implements Serializable {
 		return pageIndex;
 	}
 
+
 	public void setPageIndex(int pageIndex) {
 		this.pageIndex = pageIndex;
 	}
+
+	@Override
+	public String toString() {
+		return "PageConfig [pageIndex=" + pageIndex + ", rowCount=" + rowCount
+				+ ", pageSize=" + pageSize + ", pageNum=" + pageNum
+				+ ", pageCount=" + pageCount + ", orderBy=" + orderBy + "]";
+	}
+
+	
 
 }

@@ -30,8 +30,9 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T> {
 	}
 
 	public List<Integer> save(List<T> pojos) {
-		List<Integer> results = new ArrayList<Integer>((pojos!=null?pojos.size():0));
-		for (T pojo : pojos){
+		List<Integer> results = new ArrayList<Integer>(
+				(pojos != null ? pojos.size() : 0));
+		for (T pojo : pojos) {
 			results.add(getDao().insert(pojo));
 		}
 		return results;
@@ -45,32 +46,39 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T> {
 	public Integer delete(Serializable id) {
 		return getDao().delete(id);
 	}
+
 	public Integer[] deleteAll(Serializable[] ids) {
-		Integer[] results = new Integer[(ids!=null?ids.length:0)];
-		for (int i =0;i<ids.length;i++){
-			results[i]=delete(ids[i]);
+		Integer[] results = new Integer[(ids != null ? ids.length : 0)];
+		for (int i = 0; i < ids.length; i++) {
+			results[i] = delete(ids[i]);
 		}
 		return results;
 	}
+
 	public Integer update(T entity) {
 		return getDao().update(entity);
 	}
 
 	public List<Integer> update(List<T> pojos) {
-		List<Integer> results = new ArrayList<Integer>((pojos!=null?pojos.size():0));
+		List<Integer> results = new ArrayList<Integer>(
+				(pojos != null ? pojos.size() : 0));
 		for (T pojo : pojos)
 			results.add(getDao().update(pojo));
 		return results;
 	}
-
+	public Integer getCount(T t) {
+		return getDao().getCount(t);
+	}
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
 	public List<T> list(Map paramMap, PageConfig pageConfig) {
 		return getDao().queryPage(paramMap, pageConfig);
 	}
+
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
 	public List<T> list(PageConfig pageConfig) {
-		return getDao().queryPage( pageConfig);
+		return getDao().queryPage(pageConfig);
 	}
+
 	@Transactional(readOnly = true, propagation = Propagation.NOT_SUPPORTED)
 	public List<T> list(T pojo, PageConfig pageConfig) {
 		return getDao().queryPage(pojo, pageConfig);

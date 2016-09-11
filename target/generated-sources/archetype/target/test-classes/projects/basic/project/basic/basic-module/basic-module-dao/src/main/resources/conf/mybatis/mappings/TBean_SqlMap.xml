@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="it.pkg.test.module.dao.impl.TBeanDaoImpl">
+
+
+	<resultMap id="TBeanMap" type="it.pkg.test.module.model.pojo.TBean">
+		<result property="name" column="name" />
+		<result property="id" column="id" />
+		<result property="saveDate" column="saveDate" />
+	</resultMap>
+
+	<select id="list" resultMap="TBeanMap" useCache="true">
+		SELECT
+		*
+		FROM testbean
+		<if test="pageIndex != null">
+			limit #{pageIndex,jdbcType=INTEGER},
+		</if>
+		<if test="pageSize != null">
+			#{pageSize,jdbcType=INTEGER}
+		</if>
+	</select>
+	<select id="select" resultMap="TBeanMap" useCache="true">
+		SELECT
+		*
+		FROM testbean
+		<where>
+			<if test="id != null">
+				( id = #{id,jdbcType=INTEGER})
+			</if>
+			<if test="name != null">
+				AND ( name = #{name,jdbcType=VARCHAR})
+			</if>
+			<if test="saveDate != null">
+				AND ( saveDate = #{saveDate,jdbcType=TIMESTAMP})
+			</if>
+		</where>
+	</select>
+
+
+	<select id="selectByKey" resultMap="TBeanMap" useCache="true">
+		SELECT *
+		FROM testbean
+		WHERE
+		id=#{id,jdbcType=INTEGER}
+	</select>
+	
+	<select id="getCount" resultType="Integer" useCache="true">
+		SELECT count(*)
+		FROM testbean
+		<where>
+			<if test="id != null">
+				( id = #{id,jdbcType=INTEGER})
+			</if>
+			<if test="name != null">
+				AND ( name = #{name,jdbcType=VARCHAR})
+			</if>
+			<if test="saveDate != null">
+				AND ( saveDate = #{saveDate,jdbcType=TIMESTAMP})
+			</if>
+		</where>
+	</select>
+
+	<update id="updateByKey">
+		UPDATE testbean
+		<set>
+			<if test="name != null">
+				name=#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="saveDate != null">
+				saveDate=#{saveDate,jdbcType=TIMESTAMP}
+			</if>
+		</set>
+		WHERE id=#{id,jdbcType=INTEGER}
+	</update>
+
+	<delete id="deleteByKey">
+		delete from testbean
+		WHERE id=#{id,jdbcType=INTEGER}
+	</delete>
+
+	<delete id="deleteBy">
+		delete from testbean
+		<where>
+			<if test="id != null">
+				( id = #{id,jdbcType=INTEGER})
+			</if>
+			<if test="name != null">
+				AND ( name = #{name,jdbcType=VARCHAR})
+			</if>
+			<if test="saveDate != null">
+				AND ( saveDate = #{saveDate,jdbcType=TIMESTAMP})
+			</if>
+		</where>
+	</delete>
+	<insert id="insert" useGeneratedKeys="true"
+		parameterType="it.pkg.test.module.model.pojo.TBean" keyProperty="id">
+		INSERT INTO testbean
+		(
+		name
+		, saveDate
+		)
+		VALUES
+		(
+		#{name,jdbcType=VARCHAR}
+		,
+		#{saveDate,jdbcType=TIMESTAMP}
+		)
+	</insert>
+
+</mapper>

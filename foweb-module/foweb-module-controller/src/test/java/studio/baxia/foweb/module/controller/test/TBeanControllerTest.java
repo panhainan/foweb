@@ -32,7 +32,7 @@ public class TBeanControllerTest extends BaseControlTest {
 
 	@Test
 	public void testGet() throws Exception {
-		String responseString = mockMvc.perform(get("/testbean/2") // 请求的url,请求的方法是get
+		String responseString = mockMvc.perform(get("/testbean/8") // 请求的url,请求的方法是get
 				.contentType(MediaType.APPLICATION_FORM_URLENCODED) // 数据的格式
 				// .param("id", "6") // 添加参数
 				).andExpect(status().isOk()) // 返回的状态是200

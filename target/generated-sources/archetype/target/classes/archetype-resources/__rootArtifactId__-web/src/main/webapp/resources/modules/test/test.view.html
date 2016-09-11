@@ -1,0 +1,77 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<div class="container">
+
+    <div class="panel panel-default"><!--style="margin-bottom: 5px;"-->
+        <div class="panel-heading"><!--style="margin: 10px;margin-bottom: 0;height: 45px"-->
+            <h3 class="panel-title"><!--style="line-height: 40px;"-->
+                测试数据列表<span style="font-size: 12px">(共{{totalItems}}条记录)</span>
+                <button type="button" ng-click="openForm('md')" class="btn btn-primary" style="float: right">新建</button>
+            </h3>
+        </div>
+        <div class="panel-body" style="min-height: 440px">
+            <div class="table-responsive">
+                <table class="table  table-hover">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>日期</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="tbean in tbeans">
+                        <td>{{tbean.id}}</td>
+                        <td>{{tbean.name}}</td>
+                        <td>{{tbean.saveDate | date :'yyyy-MM-dd HH:ss'}}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                <li style="float:left"><a href="${symbol_pound}/test-case/{{tbean.id}}">查看</a> |</li>
+                                <li style="float:left"><a data-toggle="modal" ng-click="setDeleteId(tbean.id)"
+                                                          data-target="${symbol_pound}myModal">删除</a></li>
+                                <!--ng-click="delete(tbean.id,${symbol_dollar}index)"-->
+                            </ul>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer text-right"><!--style="padding: 0;"-->
+            <!--style="margin: 5px 0 0 0;"-->
+            <ul uib-pagination total-items="totalItems" max-size="5" boundary-link-numbers="true"
+                items-per-page="pageSize" ng-model="currentPage" ng-change="pageChanged()"></ul>
+        </div>
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            警告
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        确认删除编号为${symbol_pound}{{deleteId}}的记录吗？
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                        </button>
+                        <button type="button" ng-click="delete(deleteId)" data-dismiss="modal" class="btn btn-primary">
+                            确认
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal -->
+        </div>
+    </div>
+</div>

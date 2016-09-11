@@ -4,12 +4,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
         <dependent-module archiveName="foweb-module-controller-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/foweb-module-controller/foweb-module-controller">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="foweb-module-service-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/foweb-module-service/foweb-module-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="foweb-module-dao-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/foweb-module-dao/foweb-module-dao">

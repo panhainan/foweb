@@ -19,28 +19,28 @@ import studio.baxia.test.module.model.pojo.TBean;
  */
 public class TBeanDaoImplTest extends BaseTest {
 
-	public static void main(String[] args) {
-		String n1 = null, n2 = null, n3 = null;
-		Date s = new Date();
-		for (int i = 0; i < 10000000; i++) {
-			n1 = Thread.currentThread().getStackTrace()[1].getMethodName();
-		}
-		Date s1 = new Date();
-		for (int i = 0; i < 10000000; i++) {
-			n2 = new Object() {
-			}.getClass().getEnclosingMethod().getName();
-		}
-		Date s2 = new Date();
-		for (int i = 0; i < 10000000; i++) {
-			n3 = new Throwable().getStackTrace()[0].getMethodName();
-		}
-		Date s3 = new Date();
-
-		System.out.println(s1.getTime() - s.getTime());
-		System.out.println(s2.getTime() - s1.getTime());
-		System.out.println(s3.getTime() - s2.getTime());
-		System.out.println(n1 + "\t" + n2 + "\t" + n3);
-	}
+//	public static void main(String[] args) {
+//		String n1 = null, n2 = null, n3 = null;
+//		Date s = new Date();
+//		for (int i = 0; i < 10000000; i++) {
+//			n1 = Thread.currentThread().getStackTrace()[1].getMethodName();
+//		}
+//		Date s1 = new Date();
+//		for (int i = 0; i < 10000000; i++) {
+//			n2 = new Object() {
+//			}.getClass().getEnclosingMethod().getName();
+//		}
+//		Date s2 = new Date();
+//		for (int i = 0; i < 10000000; i++) {
+//			n3 = new Throwable().getStackTrace()[0].getMethodName();
+//		}
+//		Date s3 = new Date();
+//
+//		System.out.println(s1.getTime() - s.getTime());
+//		System.out.println(s2.getTime() - s1.getTime());
+//		System.out.println(s3.getTime() - s2.getTime());
+//		System.out.println(n1 + "\t" + n2 + "\t" + n3);
+//	}
 
 	@Autowired
 	private ITBeanDao iTBeanDao;
@@ -58,7 +58,7 @@ public class TBeanDaoImplTest extends BaseTest {
 
 	@Test
 	public void testGet() {
-		Integer id = 6;
+		Integer id = 8;
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
 				+ iTBeanDao.get(id));

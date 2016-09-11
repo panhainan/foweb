@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/resources/common/app-foot.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/common/app-nav.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/css/bootstrap-datetimepicker.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/css/bootstrap.min.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/css/bootstrap.offcanvas.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/css/bootstrap.offcanvas.min.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/images/logo.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/modules/index/main.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/modules/index/main.service.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/modules/test/test.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/modules/test/test.detail.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/modules/test/test.form.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/modules/test/test.form.view.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/modules/test/test.service.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/scripts/ui-bootstrap-tpls-1.3.3.min.js" charset="UTF-8" />
+  </component>
+</project>

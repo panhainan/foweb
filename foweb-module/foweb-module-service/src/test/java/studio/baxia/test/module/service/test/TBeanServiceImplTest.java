@@ -71,7 +71,7 @@ public class TBeanServiceImplTest extends BaseTest {
 	 */
 	@Test
 	public void testGet() {
-		Integer id = 6;
+		Integer id = 8;
 		System.out.println(printResultStr(
 				new Throwable().getStackTrace()[0].getMethodName(), null)
 				+ iTBeanService.get(id));

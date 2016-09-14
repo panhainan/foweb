@@ -6,6 +6,16 @@ A multi-modules maven project base on Spring+SpringMVC+Mybatis.
 
 ## 使用文档
 
+两种使用方式：  
+
+##### 1. 直接将项目download下来，然后在IDE（Eclipse或者IDEA）中以maven项目导入，注意这是多模块的maven项目。  
+ 
+#####2. 将项目的原型安装在本地，以后可以直接创建以该项目为原型的项目。
+
+这里第一种方式不做介绍，主要介绍第二种方式以及在IDE（Eclipse或者IDEA）中如何创建。
+
+<hr>
+
 ### 将原型部署到本地Maven仓库
 
 将项目目录下的`archetype.zip`下载下来，然后在本地解压；

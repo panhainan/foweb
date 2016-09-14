@@ -92,9 +92,8 @@ A multi-modules maven project base on Spring+SpringMVC+Mybatis.
 新建原型项目测试演示如图：
 
 (为防止图片在此加载不出来，附上图片地址：<a href="http://odhtjea8i.bkt.clouddn.com/foweb/IDEA_2.gif" target="_blank" >IDEA新建maven本地原型项目测试.gif</a>） 
- 
-![](http://odhtjea8i.bkt.clouddn.com/foweb/IDEA_2.gif)
 
+<img src="http://odhtjea8i.bkt.clouddn.com/foweb/IDEA_2.gif"  alt="IDEA新建maven本地原型项目测试" />
 
 ## 源码解释
 

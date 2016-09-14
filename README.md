@@ -38,7 +38,8 @@ A multi-modules maven project base on Spring+SpringMVC+Mybatis.
 
 
 
-`nexus`安装可以参考：[http://www.blogjava.net/fancydeepin/archive/2015/06/27/maven-nexus.html](http://www.blogjava.net/fancydeepin/archive/2015/06/27/maven-nexus.html "Nexus安装")
+`nexus`安装可以参考：
+<a href="http://www.blogjava.net/fancydeepin/archive/2015/06/27/maven-nexus.html" target="_blank" title="Nexus安装">http://www.blogjava.net/fancydeepin/archive/2015/06/27/maven-nexus.html</a>
 
 然后在重新使用`mvc deploy`命令执行就会提示`build success` 。
 
@@ -61,19 +62,21 @@ A multi-modules maven project base on Spring+SpringMVC+Mybatis.
 `Description`则是你对该原型在本地仓库中的描述，可自定义。
 
 操作演示如下：
+(为防止图片在此加载不出来，附上图片地址：<a href="http://odhtjea8i.bkt.clouddn.com/foweb/Eclipse%E9%85%8D%E7%BD%AEmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B1.gif" target="_blank" >Eclipse配置maven本地原型1.gif</a>）
 
 ![](http://odhtjea8i.bkt.clouddn.com/foweb/Eclipse%E9%85%8D%E7%BD%AEmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B1.gif)
+
+(为防止图片在此加载不出来，附上图片地址：<a href="http://odhtjea8i.bkt.clouddn.com/foweb/Eclipse%E9%85%8D%E7%BD%AEmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B2.gif" target="_blank" >Eclipse配置maven本地原型2.gif</a>）
 
 ![](http://odhtjea8i.bkt.clouddn.com/foweb/Eclipse%E9%85%8D%E7%BD%AEmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B2.gif)
 
 新建原型项目测试演示如图：
 
-注意：该框架是前后端分离的，这里的演示没有结合前端页面进行，只能通过api访问查看返回的数据。关于前端的演示则需要用到foweb.client进行。请查看 [https://github.com/panhainan/foweb.client](https://github.com/panhainan/foweb.client "foweb前端项目")
+注意：该框架是前后端分离的，这里的演示没有结合前端页面进行，只能通过api访问查看返回的数据。关于前端的演示则需要用到foweb.client进行。请查看：<a href="https://github.com/panhainan/foweb.client" target="_blank" title="foweb前端项目">https://github.com/panhainan/foweb.client</a>
+
+(为防止图片在此加载不出来，附上图片地址：<a href="http://odhtjea8i.bkt.clouddn.com/foweb/Eclipse%E6%96%B0%E5%BB%BAmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95.gif" target="_blank" >Eclipse新建maven本地原型项目测试.gif</a>）  
 
 ![](http://odhtjea8i.bkt.clouddn.com/foweb/Eclipse%E6%96%B0%E5%BB%BAmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95.gif)
-
-上面这个gif略大，github上面可能不能加载，这里给出链接：  
-[http://odhtjea8i.bkt.clouddn.com/foweb/Eclipse%E6%96%B0%E5%BB%BAmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95.gif](http://odhtjea8i.bkt.clouddn.com/foweb/Eclipse%E6%96%B0%E5%BB%BAmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95.gif "Eclipse新建原型项目")
 
 
 ### IDEA配置Maven本地原型
@@ -82,15 +85,15 @@ A multi-modules maven project base on Spring+SpringMVC+Mybatis.
 
 操作演示如图：
 
+(为防止图片在此加载不出来，附上图片地址：<a href="http://odhtjea8i.bkt.clouddn.com/foweb/IDEA%E9%85%8D%E7%BD%AEmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B.gif" target="_blank" >IDEA配置maven本地原型.gif</a>） 
+ 
 ![](http://odhtjea8i.bkt.clouddn.com/foweb/IDEA%E9%85%8D%E7%BD%AEmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B.gif)
 
 新建原型项目测试演示如图：
 
+(为防止图片在此加载不出来，附上图片地址：<a href="http://odhtjea8i.bkt.clouddn.com/foweb/IDEA%E6%96%B0%E5%BB%BAmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95.gif" target="_blank" >IDEA新建maven本地原型项目测试.gif</a>） 
+ 
 ![](http://odhtjea8i.bkt.clouddn.com/foweb/IDEA%E6%96%B0%E5%BB%BAmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95.gif)
-
-
-上面这个gif略大，github上面可能不能加载，这里给出链接：
-[http://http://odhtjea8i.bkt.clouddn.com/foweb/IDEA%E6%96%B0%E5%BB%BAmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95.gif](http://http://odhtjea8i.bkt.clouddn.com/foweb/IDEA%E6%96%B0%E5%BB%BAmaven%E6%9C%AC%E5%9C%B0%E5%8E%9F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95.gif "IDEA新建原型项目演示图")
 
 
 ## 源码解释

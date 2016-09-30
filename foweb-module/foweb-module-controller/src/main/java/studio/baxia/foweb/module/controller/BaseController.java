@@ -33,34 +33,33 @@ public abstract class BaseController<T> {
 
 	protected abstract IBaseService<T> getService();
 
+    protected CommonResult getResult(Boolean isSuccess,Object data,String message){
+        CommonResult commonResult;
+        if (isSuccess) {
+            // 成功运行
+            commonResult = new CommonResult(RESPONSE_SUCCESS_CODE, data);
+        } else {
+            // 失败运行
+            commonResult = new CommonResult(RESPONSE_ERROR_CODE, message);
+        }
+        return commonResult;
+    }
 	@ResponseBody
 	@RequestMapping(value = "/{id}", method = { RequestMethod.GET,
 			RequestMethod.POST })
 	public CommonResult get(@PathVariable(value = "id") Integer id) {
-		CommonResult commonResult = null;
 		Boolean isSuccess = true;
 		String message = null;
 		T t = null;
 		try {
 			t = getService().get(id);
-			if (null == t) {
-				isSuccess = false;
-				message = RESPONSE_NULL_MESSAGE;
-			}
 		} catch (Exception e) {
 			isSuccess = false;
-			e.printStackTrace();
+            log.error(e.getLocalizedMessage());
 			message = e.getLocalizedMessage();
 		} finally {
-			if (isSuccess) {
-				// 成功运行
-				commonResult = new CommonResult(RESPONSE_SUCCESS_CODE, t);
-			} else {
-				// 失败运行
-				commonResult = new CommonResult(RESPONSE_ERROR_CODE, message);
-			}
+            return getResult(isSuccess,t,message);
 		}
-		return commonResult;
 	}
 
 	@ResponseBody
